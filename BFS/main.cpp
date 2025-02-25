@@ -1,4 +1,5 @@
 #include <iostream>
+#include "../PuzzleState.h"
 #include <vector>
 using namespace std;
 
@@ -14,24 +15,24 @@ int main() {
     cin >> numRowsCols;
     cout << endl;
 
-    // 2D arrays to store start state (row-by-row) amd end state (row-by-row), initialized to all 0s; both matrices are N*N
-    vector<vector<int>> startState(numRowsCols, vector<int>(numRowsCols));
-    vector<vector<int>> goalState(numRowsCols, vector<int>(numRowsCols));
+    // create a new start state and goal state
+    PuzzleState startState(numRowsCols, numRowsCols);
+    PuzzleState goalState(numRowsCols, numRowsCols);
 
-    // user-input for start state
     cout << "Enter Start State row by row:" << endl;
-    for (int i = 0; i < numRowsCols; i++) {
-        for (int j = 0; j < numRowsCols; j++) {
-            cin >> startState[i][j];
-        }
-    }
-    //user-input for goal state
-    cout << "Enter Goal State row by row:" << endl;
-    for (int i = 0; i < numRowsCols; i++) {
-        for (int j = 0; j < numRowsCols; j++) {
-            cin >> goalState[i][j];
-        }
-    }
+    cin >> startState;
+
+    cout << "\nEnter Goal State row by row:" << endl;
+    cin >> goalState;
+
+    // print the puzzle state for testing
+    cout << startState << endl << endl;
+    cout << goalState << endl;
+
+    // move up and print for testing
+    PuzzleState newState = startState.moveBlankUp();
+    cout << "New state:" << endl << endl;
+    cout << newState << endl;
 
     return 0;
 }
