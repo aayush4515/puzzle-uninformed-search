@@ -1,5 +1,7 @@
 #include <iostream>
 #include "../PuzzleState.h"
+#include "../PuzzleMove.h"
+#include "bfs.h"
 #include <vector>
 using namespace std;
 
@@ -25,14 +27,19 @@ int main() {
     cout << "\nEnter Goal State row by row:" << endl;
     cin >> goalState;
 
-    // print the puzzle state for testing
-    cout << startState << endl << endl;
-    cout << goalState << endl;
+    // // print the puzzle state for testing
+    // cout << startState << endl << endl;
+    // cout << goalState << endl;
 
-    // move up and print for testing
-    PuzzleState newState = startState.moveBlankUp();
-    cout << "New state:" << endl << endl;
-    cout << newState << endl;
+    // // move up and print for testing
+    // PuzzleState newState = startState.moveBlankUp();
+    // cout << "New state:" << endl << endl;
+    // cout << newState << endl;
+
+
+    bfs(startState, goalState);
+
+
 
     return 0;
 }

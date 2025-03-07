@@ -10,17 +10,18 @@ class PuzzleMove {
 public:
 	PuzzleMove() { }
 
-	PuzzleMove(PuzzleState s, PuzzleState p, MoveType m) : state(s),parent(p),move(m) { }
+	PuzzleMove(PuzzleState s, PuzzleMove* p, MoveType m) : state(s),parent(p),move(m) { }
 
     PuzzleState & getState() { 	return state; }
 
-	PuzzleState & getParent() { return parent; }
+	PuzzleMove* getParent() { return parent; }
 
 	MoveType getMoveName() { return move; }
 
 private:
 	PuzzleState state;
-	PuzzleState parent;
+	PuzzleMove* parent;
 	MoveType move;
 };
+
 #endif
