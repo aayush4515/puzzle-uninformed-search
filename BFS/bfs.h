@@ -2,8 +2,9 @@
 #define _BFS_
 
 #include "../PuzzleState.h"
+#include "../PuzzleMove.h"
 
-//void printPath(PuzzleMove* move);
+int printPath(PuzzleMove* move);
 void bfs (PuzzleState startState, PuzzleState goalState);
 
 #endif
